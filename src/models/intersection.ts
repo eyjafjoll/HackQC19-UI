@@ -18,12 +18,12 @@ export class Intersection {
         in_sidewalkSize: number,
         in_rating: number,
     ) {
-        this.idIntersection=in_idIntersection;
+        this.idIntersection = in_idIntersection;
         this.latitude = in_latitude;
         this.longitude = in_longitude;
         this.colision = in_colision;
         this.pedestrianCross = in_pedestrianCross;
-        this.sidewalkSize=in_sidewalkSize;
+        this.sidewalkSize = in_sidewalkSize;
         this.rating = in_rating;
     }
 }
