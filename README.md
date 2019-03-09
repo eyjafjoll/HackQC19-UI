@@ -1,6 +1,6 @@
-# hackqc_2019
+# HackQC19-UI
 
-The Appille project application.
+This repository is linked to this API: [HackQC19 - API](https://github.com/ClubCedille/hackqc2019).
 
 ## Getting Started
 
