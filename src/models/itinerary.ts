@@ -11,4 +11,8 @@ export class Itinerary {
         this.paths = paths;
     }
 
+    getDirections(): any {
+        return {};
+    }
+
 }
