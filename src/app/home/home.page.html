@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment (ionChange)="segmentChanged($event)" value="walk">
       <ion-segment-button value="walk">
         <ion-icon name="walk"></ion-icon>
       </ion-segment-button>
@@ -15,6 +15,23 @@
 </ion-header>
 
 <ion-content>
+
+
+
+    <ion-item>
+        <ion-label position="floating">Départ</ion-label>
+        <ion-input clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Arrivée</ion-label>
+        <ion-input clearInput></ion-input>
+    </ion-item>
+
+
+        <ion-button shape="round">Départ</ion-button>
+    
+
     <ion-card class="welcome-card">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>

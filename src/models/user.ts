@@ -6,6 +6,7 @@ export class User {
     isColorless: boolean;
     isFamily: boolean;
     isAgoraphobic: boolean;
+    lastTransportationMode: int;
 
 
     constructor(
@@ -15,7 +16,9 @@ export class User {
         isDeaf: boolean,
         isColorless: boolean,
         isFamily: boolean,
-        isAgoraphobic: boolean
+        isAgoraphobic: boolean,
+        lastTransportaionMode,
+
     )
     {
         this.idUser = idUser;
@@ -25,5 +28,6 @@ export class User {
         this.isColorless = isColorless;
         this.isFamily = isFamily;
         this.isAgoraphobic = isAgoraphobic;
+        this.lastTransportationMode = lastTransportaionMode;
     }
 }
