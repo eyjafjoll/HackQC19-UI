@@ -1,6 +1,6 @@
-import { Itinerary } from "./itenerary"
+import {Itinerary} from './itinerary';
 
-export class GetRattingPath{
+export class GetRattingPath {
     idRating: number;
     startPoint: number;
     endPoint: number;
