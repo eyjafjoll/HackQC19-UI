@@ -1,29 +1,34 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {Routes, RouterModule} from '@angular/router';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 
-import { MapPage } from './map.page';
+import {MapPage} from './map.page';
+import {MapComponent} from '../../components/map/map.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MapPage
-  }
+    {
+        path: '',
+        component: MapPage
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  providers: [Geolocation],
-  declarations: [MapPage]
+    declarations: [
+        MapComponent,
+        MapPage
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes)
+    ],
+    providers: [Geolocation]
 })
-export class MapPageModule {}
+export class MapPageModule {
+}
