@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des resultats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let ath of athletes">
+      <h2>{{ath.firstname}} {{ath.lastname}}</h2>
+      <h3>Dossart : {{ath.dossart }}</h3>
+      <ion-avatar item-right>
+        <img src="{{obtenirFlag(ath)}}">
+      </ion-avatar>
+    </ion-item>
+    <ion-item class="no-items">Pas de trajets correspondant à votre requête.</ion-item>
+  </ion-list>
+</ion-content>
