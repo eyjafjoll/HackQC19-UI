@@ -6,7 +6,7 @@ export class User {
     isColorless: boolean;
     isFamily: boolean;
     isAgoraphobic: boolean;
-    lastTransportationMode: int;
+    lastTransportationMode: number;
 
 
     constructor(
