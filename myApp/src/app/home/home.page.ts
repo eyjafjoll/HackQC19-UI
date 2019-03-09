@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+	segmentChanged(ev: any) {
+        console.log('Segment changed', ev);
+    }
 }
