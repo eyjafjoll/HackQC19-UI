@@ -1,12 +1,17 @@
+import {Intersection} from './intersection';
+
 export class Path {
+
     idPath: number;
     colorCode: string;
+    intersections: Array<Intersection>;
 
-    constructor(
-        in_idPath: number,
-        in_colorCode: string
-    ) {
-        this.idPath=in_idPath;
-        this.colorCode=in_colorCode;
+    // rating: number;
+
+    constructor(idPath: number, colorCode: string, intersections: Intersection[]) {
+        this.idPath = idPath;
+        this.colorCode = colorCode;
+        this.intersections = intersections;
     }
+
 }
