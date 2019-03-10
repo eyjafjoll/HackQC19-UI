@@ -45,7 +45,7 @@ export class MapComponent implements OnInit {
             this.markerOptions.title = 'My Location';
             this.marker = new google.maps.Marker(this.markerOptions);
             this.directionsDisplay.setMap(this.map);
-            this.displayDirection(new Itinerary(1, []));
+            this.displayDirection(new Itinerary({}));
         });
 
 
@@ -65,6 +65,11 @@ export class MapComponent implements OnInit {
     }
 
     displayDirection(itinerary: Itinerary) {
+        // this.directionsDisplay.setDirections({
+        // TODO get request from ratedPaths
+        // routes: [itinerary.getDirections()];
+        // });
+
         this.delay(3000).then(() => {
             this.directionsService.route({
                 origin: this.location,

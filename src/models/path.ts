@@ -1,17 +1,27 @@
 import {Intersection} from './intersection';
 
 export class Path {
-
-    idPath: number;
     colorCode: string;
     intersections: Array<Intersection>;
+    duration: string;
+    distance: string;
+    rating: {};
 
-    // rating: number;
+    // request needed to draw the steps
+    request;
 
-    constructor(idPath: number, colorCode: string, intersections: Intersection[]) {
-        this.idPath = idPath;
+
+    constructor(colorCode: string, rating: {}, request) {
         this.colorCode = colorCode;
-        this.intersections = intersections;
+        this.rating = rating;
+        this.request = request;
+
+        this.duration = request.duration.text;
+        this.distance = request.distance.text;
+    }
+
+    getRating() {
+        // TODO
     }
 
 }

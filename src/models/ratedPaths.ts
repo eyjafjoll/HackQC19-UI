@@ -4,7 +4,9 @@ export class RatedPaths {
     origin: any;
     destination: string;
     travelMode: string;
-    itineraries: Array<Itinerary>;
+    itineraries: Array<Itinerary> = [];
+
+    request;
 
 
     constructor(
@@ -17,7 +19,17 @@ export class RatedPaths {
         this.travelMode = transportationMode;
     }
 
-    createItineraries(steps: any) {
-        // TODO
+    createItineraries(rating: [], res: any) {
+        this.request = res.request;
+        let itinerary;
+        let legs;
+        res.routes.forEach(route => {
+            legs = route.legs[0];
+            itinerary = new Itinerary(legs);
+            legs.steps.forEach(step => {
+                itinerary.addPath([], step);
+            });
+            this.itineraries.push(itinerary);
+        });
     }
 }
