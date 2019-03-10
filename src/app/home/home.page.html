@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Ou aller?</ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="goToSettings()" color="primary">
+      <ion-button (click)="goToSettings()">
         <ion-icon slot="icon-only" name="settings"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content center text-center>
-    <ion-segment [(ngModel)]="travelMode" value="walking">
+    <ion-segment class="ion-padding" [(ngModel)]="travelMode" value="walking">
         <ion-segment-button value="walking">
             <ion-icon name="walk"></ion-icon>
         </ion-segment-button>
@@ -21,7 +21,7 @@
             <ion-icon name="bicycle"></ion-icon>
         </ion-segment-button>
     </ion-segment>
-    
+
     <ion-item>
         <ion-icon slot="start" name="pin"></ion-icon>
         <ion-label position="floating">Votre position</ion-label>

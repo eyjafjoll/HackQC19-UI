@@ -25,7 +25,7 @@ export class ResultsPage implements OnInit {
         ];
 
         this.itineraries.sort(this.compare);
-        
+
         console.log(this.destination);
         // this.ratedPaths = this.apiService.ratedPaths Observable
     }
@@ -38,7 +38,7 @@ export class ResultsPage implements OnInit {
     }
 
   goToDetails(i:Itinerary){
-      this.router.navigate(['/map'])
+      //this.router.navigate(['/map'])
   }
 
     compare(a: Itinerary, b: Itinerary) {

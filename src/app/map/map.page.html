@@ -1,3 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Bonne route</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <google-map></google-map>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

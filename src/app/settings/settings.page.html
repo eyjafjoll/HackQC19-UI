@@ -1,9 +1,80 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Parametres</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-list-header class="ion-margin-top">
+      <ion-label color="dark">My locations</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Checkbox</ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Checkbox</ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
 
+    <ion-list-header class="ion-margin-top">
+      <ion-label color="secondary">Mode de transport favori</ion-label>
+    </ion-list-header>
+    <ion-radio-group>
+    <ion-item>
+      <ion-label>Radio</ion-label>
+      <ion-radio slot="end"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Radio</ion-label>
+      <ion-radio slot="end"></ion-radio>
+    </ion-item>
+      </ion-radio-group>
+
+    <ion-list-header class="ion-margin">
+      <ion-label color="dark">Contraintes</ion-label>
+    </ion-list-header>
+      <ion-item>
+        <ion-label>Malvoyant</ion-label>
+        <ion-toggle slot="end"></ion-toggle>
+      </ion-item>
+    <ion-item>
+      <ion-label>Daltonien</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Malentendant</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mobilité réduite</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Jeunes enfants</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Agoraphobe</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-list-header class="ion-margin-top">
+      <ion-label color="dark">Mode de transport alternatifs</ion-label>
+    </ion-list-header>
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>Radio</ion-label>
+        <ion-radio slot="end"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Radio</ion-label>
+        <ion-radio slot="end"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    </ion-list>
 </ion-content>

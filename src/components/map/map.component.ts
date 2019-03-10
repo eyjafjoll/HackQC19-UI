@@ -45,7 +45,7 @@ export class MapComponent implements OnInit {
             this.markerOptions.title = 'My Location';
             this.marker = new google.maps.Marker(this.markerOptions);
             this.directionsDisplay.setMap(this.map);
-            this.displayDirection(new Itinerary(1, []));
+            //this.displayDirection(new Itinerary([]));
         });
 
 
