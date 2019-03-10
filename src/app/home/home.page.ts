@@ -27,19 +27,20 @@ export class HomePage {
     }
 
     goToSettings(i:Itinerary){
-        this.router.navigate(['/settings'])
+        this.router.navigate(['/settings']);
     }
 
     calculateItenerary() {
-        if (!this.origin) {
-            this.origin = this.position.lat + ',' + this.position.lng;
+        let origin = this.origin;
+        if (!origin) {
+            origin = this.position.lat + ',' + this.position.lng;
         }
 
-        this.apiService.origin = this.origin;
+        this.apiService.origin = origin;
         this.apiService.destination = this.destination;
 
         // TODO fill constraints
-        this.apiService.searchItineraries(this.origin, this.destination, this.travelMode, []);
+        this.apiService.searchItineraries(origin, this.destination, this.travelMode, []);
         this.router.navigate(['/results']);
     }
 }
