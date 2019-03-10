@@ -9,34 +9,33 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-list-header class="ion-margin-top">
-      <ion-label color="dark">My locations</ion-label>
+    <ion-list-header>
+      <ion-label color="secondary" text-uppercase="">Vie privée</ion-label>
     </ion-list-header>
     <ion-item>
-      <ion-label>Checkbox</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Checkbox</ion-label>
+      <ion-label>Géolocalisation</ion-label>
       <ion-checkbox slot="start"></ion-checkbox>
     </ion-item>
 
+
     <ion-list-header class="ion-margin-top">
-      <ion-label color="secondary">Mode de transport favori</ion-label>
+      <ion-label color="secondary" text-uppercase="">Mode de transport favori</ion-label>
     </ion-list-header>
     <ion-radio-group>
     <ion-item>
-      <ion-label>Radio</ion-label>
+      <ion-icon slot="start" name="walk"></ion-icon>
+      <ion-label>Marche</ion-label>
       <ion-radio slot="end"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>Radio</ion-label>
+      <ion-icon slot="start" name="bicycle"></ion-icon>
+      <ion-label>Vélo</ion-label>
       <ion-radio slot="end"></ion-radio>
     </ion-item>
       </ion-radio-group>
 
     <ion-list-header class="ion-margin">
-      <ion-label color="dark">Contraintes</ion-label>
+      <ion-label color="secondary" text-uppercase="">Contraintes</ion-label>
     </ion-list-header>
       <ion-item>
         <ion-label>Malvoyant</ion-label>
@@ -64,15 +63,22 @@
     </ion-item>
 
     <ion-list-header class="ion-margin-top">
-      <ion-label color="dark">Mode de transport alternatifs</ion-label>
+      <ion-label color="secondary" text-uppercase="">Mode de transport alternatifs</ion-label>
     </ion-list-header>
     <ion-radio-group>
       <ion-item>
-        <ion-label>Radio</ion-label>
+        <ion-icon slot="start" name="cart"></ion-icon>
+        <ion-label>Chariot</ion-label>
         <ion-radio slot="end"></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>Radio</ion-label>
+        <ion-icon slot="start" name="paper-plane"></ion-icon>
+        <ion-label>Avion</ion-label>
+        <ion-radio slot="end"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="rocket"></ion-icon>
+        <ion-label>Fusée</ion-label>
         <ion-radio slot="end"></ion-radio>
       </ion-item>
     </ion-radio-group>

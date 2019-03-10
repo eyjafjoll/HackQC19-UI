@@ -13,10 +13,24 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card class="welcome-card" (click)="goToHome()">
+    <ion-card-header>
+      <ion-card-title>Votre trajet</ion-card-title>
+      <ion-card-subtitle color="secondary">Vers: </br> {{destination}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+
   <ion-list>
     <ion-item (click)="goToDetails(i)" *ngFor="let i of ratedPaths.itineraries">
-      <ion-label class="hydrated">{{i.time}}</ion-label>
-      <ion-note slot="end" color="warning" class="ion-color ion-color-warning hydrated">{{i.rating}}%</ion-note>
+      <ion-icon slot="start" name="walk"></ion-icon>
+      <ion-label>
+        <h2 class="bold">{{i.time}}</h2>
+        <h3>{{i.distance}}</h3>
+      </ion-label>
+      <ion-note slot="end" class="bold">{{i.rating}}%</ion-note>
     </ion-item>
     <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>
   </ion-list>

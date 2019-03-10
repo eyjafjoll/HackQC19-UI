@@ -25,6 +25,9 @@ export class ResultsPage implements OnInit {
     ngOnInit() {
     }
 
+    goToHome() {
+        this.router.navigate(['/home']);
+    }
 
     goToSettings() {
         this.router.navigate(['/settings']);
