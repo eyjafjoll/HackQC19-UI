@@ -5,6 +5,7 @@ export class RatedPaths {
     destination: string;
     travelMode: string;
     itineraries: Array<Itinerary> = [];
+    itinerarySelected: Itinerary;
 
     request;
 
@@ -25,11 +26,15 @@ export class RatedPaths {
         let legs;
         res.routes.forEach(route => {
             legs = route.legs[0];
-            itinerary = new Itinerary(legs);
+            itinerary = new Itinerary(route);
             legs.steps.forEach(step => {
                 itinerary.addPath([], step);
             });
             this.itineraries.push(itinerary);
         });
+    }
+
+    selectItinerary(i: Itinerary): void {
+        this.itinerarySelected = i;
     }
 }

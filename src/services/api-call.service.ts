@@ -18,7 +18,7 @@ export class ApiCallService {
     constructor(private http: HttpClient) {
     }
 
-    searchItineraries(origin: any, destination: string, travelMode: string, constraints: string[]) {
+    searchItineraries(origin: string, destination: string, travelMode: string, constraints: string[]) {
         const params = {
             destination: destination,
             origin: origin,
@@ -55,10 +55,13 @@ export class ApiCallService {
                             provideRouteAlternatives: true
                         }, (response, status) => {
                             if (status === 'OK') {
+                                console.log(response)
                                 this.ratedPaths = new RatedPaths(origin, destination, travelMode);
                                 this.ratedPaths.createItineraries([], response);
+                                console.log('population finish');
                                 return resolve();
                             }
+                            console.log(response);
                             return reject();
                         });
                     }

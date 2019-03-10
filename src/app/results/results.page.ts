@@ -31,15 +31,15 @@ export class ResultsPage implements OnInit {
     }
 
     goToDetails(i: Itinerary) {
-        console.log(i);
-        //this.router.navigate(['/map']);
+        this.ratedPaths.selectItinerary(i);
+        this.router.navigate(['/map']);
     }
 
     compare(a: Itinerary, b: Itinerary) {
-        if (a.getRating() < b.getRating()) {
+        if (a.rating < b.rating) {
             return 1;
         }
-        if (a.getRating() > b.getRating()) {
+        if (a.rating > b.rating) {
             return -1;
         }
         return 0;

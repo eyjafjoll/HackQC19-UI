@@ -19,6 +19,7 @@ export class HomePage {
 
 
     constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation) {
+
         this.geolocation.getCurrentPosition().then((position) => {
             this.position.lat = position.coords.latitude;
             this.position.lng = position.coords.longitude;
