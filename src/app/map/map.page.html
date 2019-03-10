@@ -26,7 +26,7 @@
             <h2 class="bold">{{i.duration}}</h2>
             <h3>{{i.distance}}</h3>
           </ion-label>
-          <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.rating)">{{i.rating}}%</ion-note>
+          <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.getRating())">{{i.getRating()}}%</ion-note>
         </ion-item>
       </ion-list>
     </ion-card-content>
