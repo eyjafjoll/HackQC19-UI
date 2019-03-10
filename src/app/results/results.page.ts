@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Itinerary } from "../../models/itinerary";
-import {ApiCallService} from '../../services/api-call.service';
+import { ApiCallService } from '../../services/api-call.service';
 
 @Component({
     selector: 'app-results',
@@ -14,10 +14,18 @@ export class ResultsPage implements OnInit {
     origin: string;
     destination: string;
 
-    constructor(private apiService: ApiCallService) {
+    constructor(private apiService: ApiCallService, private router: Router) {
         this.origin = this.apiService.origin;
         this.destination = this.apiService.destination;
 
+        this.itineraries = [
+            new Itinerary(0,[], 0),
+            new Itinerary(1,[], 0),
+            new Itinerary(2,[], 0)
+        ];
+
+        this.itineraries.sort(this.compare);
+        
         console.log(this.destination);
         // this.ratedPaths = this.apiService.ratedPaths Observable
     }
