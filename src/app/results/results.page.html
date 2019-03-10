@@ -14,8 +14,8 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item (click)="goToDetails(i)" *ngFor="let i of itineraries">
-      <ion-label class="hydrated">{{i.time}} min</ion-label>
+    <ion-item (click)="goToDetails(i)" *ngFor="let i of ratedPaths.itineraries">
+      <ion-label class="hydrated">{{i.time}}</ion-label>
       <ion-note slot="end" color="warning" class="ion-color ion-color-warning hydrated">{{i.rating}}%</ion-note>
     </ion-item>
     <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>

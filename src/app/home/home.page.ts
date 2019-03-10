@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
-import { Router } from '@angular/router';
-import {Itinerary} from "../../models/itinerary";
+import {Router} from '@angular/router';
+import {Itinerary} from '../../models/itinerary';
 import {ApiCallService} from '../../services/api-call.service';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 
@@ -15,10 +15,11 @@ export class HomePage {
     origin: string;
     position = {lat: null, lng: null};
     destination: string;
-    travelMode: string;
+    travelMode = 'WALKING';
 
 
     constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation) {
+
         this.geolocation.getCurrentPosition().then((position) => {
             this.position.lat = position.coords.latitude;
             this.position.lng = position.coords.longitude;
@@ -26,20 +27,31 @@ export class HomePage {
         });
     }
 
-    goToSettings(i:Itinerary){
-        this.router.navigate(['/settings'])
+    goToSettings(i: Itinerary) {
+        this.router.navigate(['/settings']);
     }
 
     calculateItenerary() {
-        if (!this.origin) {
-            this.origin = this.position.lat + ',' + this.position.lng;
+        let origin = this.origin;
+        let constraints; // TODO get contraints from settings
+        if (!origin) {
+            origin = this.position.lat + ',' + this.position.lng;
         }
 
-        this.apiService.origin = this.origin;
+        this.apiService.origin = origin;
         this.apiService.destination = this.destination;
 
-        // TODO fill constraints
-        this.apiService.searchItineraries(this.origin, this.destination, this.travelMode, []);
-        this.router.navigate(['/results']);
+        if (this.travelMode !== 'WALKING') {
+            constraints = [];
+        }
+        // TODO up loading page
+        this.apiService.searchItineraries(origin, this.destination, this.travelMode, constraints).then(() => {
+            // TODO hide loading page
+            this.router.navigate(['/results']);
+        }, () => {
+            // TODO delete next line, uncomment the following
+            this.router.navigate(['/results']);
+            // window.alert('Une erreur est survenu');
+        });
     }
 }
