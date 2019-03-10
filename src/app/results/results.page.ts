@@ -31,7 +31,8 @@ export class ResultsPage implements OnInit {
     }
 
     goToDetails(i: Itinerary) {
-        this.router.navigate(['/map']);
+        console.log(i);
+        //this.router.navigate(['/map']);
     }
 
     compare(a: Itinerary, b: Itinerary) {

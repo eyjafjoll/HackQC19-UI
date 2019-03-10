@@ -28,16 +28,18 @@ export class MapComponent implements OnInit {
     }
 
     ngOnInit() {
+
+        this.mapOptions = {
+            center: this.location,
+            zoom: 17,
+            mapTypeControl: false,
+            mapTypeId: 'roadmap'
+        };
+
         /*Get Current location*/
         this.geolocation.getCurrentPosition().then((position) => {
             this.location.lat = position.coords.latitude;
             this.location.lng = position.coords.longitude;
-            this.mapOptions = {
-                center: this.location,
-                zoom: 17,
-                mapTypeControl: false,
-                mapTypeId: 'roadmap'
-            };
             this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
             /*Marker Options*/
             this.markerOptions.position = this.location;

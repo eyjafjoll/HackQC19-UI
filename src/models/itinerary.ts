@@ -12,7 +12,7 @@ export class Itinerary {
     constructor(request) {
         this.request = request;
         this.time = request.duration.text;
-        this.distance = request.distance.texttime;
+        this.distance = request.distance.text;
         this.rating = this.getRating();
     }
 
