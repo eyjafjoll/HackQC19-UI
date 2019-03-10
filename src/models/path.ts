@@ -18,11 +18,30 @@ export class Path {
             vehiculepietion: rating.vehiculepietion,
         };
 
-        this.message = '';
+        this.populateMessage();
+
         this.request = request;
 
         this.duration = request.duration.text;
         this.distance = request.distance.text;
+    }
+
+    populateMessage() {
+        let max = 'collision';
+        this.message = 'Attention: collisions';
+
+        if (this.rating.feupieton > this.rating[max]) {
+            max = 'feupieton';
+            this.message = 'Attention: peu de feux piétons';
+        }
+        if (this.rating.feuxsonores > this.rating[max]) {
+            max = 'feuxsonores';
+            this.message = 'Attention: peu de feux sonores';
+        }
+        if (this.rating.vehiculepietion > this.rating[max]) {
+            max = 'vehiculepieton';
+            this.message = 'Attention: circulation importante';
+        }
     }
 
     getRating() {
