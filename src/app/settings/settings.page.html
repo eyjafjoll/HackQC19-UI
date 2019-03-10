@@ -1,9 +1,86 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>Parametres</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-list>
+        <ion-list-header>
+            <ion-label color="secondary" text-uppercase="">Vie privée</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Géolocalisation</ion-label>
+            <ion-checkbox slot="start" checked></ion-checkbox>
+        </ion-item>
 
+
+        <ion-list-header class="ion-margin-top">
+            <ion-label color="secondary" text-uppercase="">Mode de transport favori</ion-label>
+        </ion-list-header>
+        <ion-radio-group>
+            <ion-item>
+                <ion-icon slot="start" name="walk" value="WALKING"></ion-icon>
+                <ion-label>Marche</ion-label>
+                <ion-radio slot="end"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="bicycle" value="BICYCLING"></ion-icon>
+                <ion-label>Vélo</ion-label>
+                <ion-radio slot="end"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+
+        <ion-list-header class="ion-margin">
+            <ion-label color="secondary" text-uppercase="">Contraintes</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Malvoyant</ion-label>
+            <ion-toggle slot="end" [(ngModel)]="blind"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Daltonien</ion-label>
+            <ion-toggle slot="end" checked="true"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Malentendant</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Mobilité réduite</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Jeunes enfants</ion-label>
+            <ion-toggle slot="end" checked="true"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-label>Agoraphobe</ion-label>
+            <ion-toggle slot="end"></ion-toggle>
+        </ion-item>
+
+        <ion-list-header class="ion-margin-top">
+            <ion-label color="secondary" text-uppercase="">Mode de transport alternatifs</ion-label>
+        </ion-list-header>
+        <ion-radio-group>
+            <ion-item>
+                <ion-icon slot="start" name="cart"></ion-icon>
+                <ion-label>Chariot</ion-label>
+                <ion-radio slot="end"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="paper-plane"></ion-icon>
+                <ion-label>Avion</ion-label>
+                <ion-radio slot="end"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-icon slot="start" name="rocket"></ion-icon>
+                <ion-label>Fusée</ion-label>
+                <ion-radio slot="end"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+    </ion-list>
 </ion-content>

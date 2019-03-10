@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 
-import { Router } from '@angular/router';
-import {Itinerary} from "../../models/itinerary";
+import {Router} from '@angular/router';
 import {ApiCallService} from '../../services/api-call.service';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
+import {SettingsService} from '../../services/settings.service';
+import {LoadingController} from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
@@ -15,10 +16,12 @@ export class HomePage {
     origin: string;
     position = {lat: null, lng: null};
     destination: string;
-    travelMode: string;
+    travelMode = 'WALKING';
 
 
-    constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation) {
+    constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation,
+                private settingsService: SettingsService, public loadingController: LoadingController) {
+
         this.geolocation.getCurrentPosition().then((position) => {
             this.position.lat = position.coords.latitude;
             this.position.lng = position.coords.longitude;
@@ -26,20 +29,36 @@ export class HomePage {
         });
     }
 
-    goToSettings(i:Itinerary){
-        this.router.navigate(['/settings'])
+    goToSettings() {
+        this.router.navigate(['/settings']);
     }
 
-    calculateItenerary() {
-        if (!this.origin) {
-            this.origin = this.position.lat + ',' + this.position.lng;
+    async calculateItenerary() {
+        let origin = this.origin;
+        let constraints = this.settingsService.getSettings();
+        if (!origin) {
+            origin = this.position.lat + ',' + this.position.lng;
         }
 
-        this.apiService.origin = this.origin;
+        this.apiService.origin = origin;
         this.apiService.destination = this.destination;
 
-        // TODO fill constraints
-        this.apiService.searchItineraries(this.origin, this.destination, this.travelMode, []);
-        this.router.navigate(['/results']);
+        console.log(constraints);
+        if (this.travelMode !== 'WALKING') {
+            constraints = [];
+        }
+        // TODO up loading page
+        const loading = await this.loadingController.create({ message: 'Chargement en cours...' });
+        await loading.present();
+        this.apiService.searchItineraries(origin, this.destination, this.travelMode, constraints).then(async () => {
+            // TODO hide loading page
+            await loading.dismiss();
+            this.router.navigate(['/results']);
+        }, async () => {
+            await loading.dismiss();
+            // TODO delete next line, uncomment the following
+            this.router.navigate(['/results']);
+            // window.alert('Une erreur est survenu');
+        });
     }
 }
