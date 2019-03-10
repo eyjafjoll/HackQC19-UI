@@ -45,9 +45,26 @@ export class Path {
     }
 
     getRating() {
-        const number = this.rating.collision + this.rating.feupieton + this.rating.feuxsonores + this.rating.vehiculepietion;
+        let number = 0;
+        let divider = 0;
+        if (this.rating.collision > 0) {
+            number += this.rating.collision;
+            divider++;
+        }
+        if (this.rating.feupieton > 0) {
+            number += this.rating.feupieton;
+            divider++;
+        }
+        if (this.rating.feuxsonores > 0) {
+            number += this.rating.feuxsonores;
+            divider++;
+        }
+        if (this.rating.vehiculepietion > 0) {
+            number += this.rating.vehiculepietion;
+            divider++;
+        }
 
-        return number / 4;
+        return Math.round(number / divider);
     }
 
 }

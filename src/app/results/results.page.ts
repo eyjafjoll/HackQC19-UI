@@ -49,12 +49,12 @@ export class ResultsPage implements OnInit {
     }
 
     getColor(i: number) {
-        if (i >= 85) {
-            return "ion-color-success";
-        } else if (i >= 70 && i > 50) {
-            return "ion-color-warning";
+        if (i >= 80) {
+            return 'ion-color-success';
+        } else if (i <= 80 && i > 50) {
+            return 'ion-color-warning';
         } else {
-            return "ion-color-danger";
+            return 'ion-color-danger';
         }
     }
 

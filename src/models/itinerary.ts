@@ -24,7 +24,7 @@ export class Itinerary {
             number += path.getRating();
         });
 
-        return number / this.paths.length;
+        return Math.round(number / this.paths.length);
     }
 
     getDirections(): any {

@@ -22,9 +22,9 @@ export class MapPage {
     }
 
     getColor(i: number) {
-        if (i >= 85) {
+        if (i >= 80) {
             return 'ion-color-success';
-        } else if (i >= 70 && i > 50) {
+        } else if (i <= 80 && i > 50) {
             return 'ion-color-warning';
         } else {
             return 'ion-color-danger';

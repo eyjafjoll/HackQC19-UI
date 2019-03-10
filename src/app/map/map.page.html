@@ -16,7 +16,7 @@
     <google-map></google-map>
     <ion-card class="welcome-card">
         <ion-card-header>
-            <ion-card-title>Détails de l'indice de sécurité</ion-card-title>
+            <ion-card-title class="ion-color-secondary">Détails de l'indice de sécurité</ion-card-title>
         </ion-card-header>
         <ion-card-content>
             <ion-list>
@@ -26,7 +26,7 @@
                         <h2 class="bold">{{i.duration}}</h2>
                         <h3>{{i.distance}}</h3>
                     </ion-label>
-                    <p>{{ i.message }}</p>
+                    <!--<p>{{ i.message }}</p>-->
                     <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.getRating())">{{i.getRating()}}%
                     </ion-note>
                 </ion-item>
