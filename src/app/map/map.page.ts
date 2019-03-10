@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {Itinerary} from "../../models/itinerary";
 
 
 @Component({
@@ -9,6 +11,10 @@ import {Component} from '@angular/core';
 export class MapPage {
 
 
-    constructor() {
+    constructor(private router: Router) {
+    }
+
+    goToSettings() {
+        this.router.navigate(['/settings']);
     }
 }

@@ -27,7 +27,7 @@ export class HomePage {
         });
     }
 
-    goToSettings(i: Itinerary) {
+    goToSettings() {
         this.router.navigate(['/settings']);
     }
 
