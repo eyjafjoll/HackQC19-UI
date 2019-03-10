@@ -33,7 +33,6 @@ export class ApiCallService {
             }).toPromise()
                 .then(
                     res => {
-                        console.log(res);
                         this.directionsService.route({
                             origin: origin,
                             destination: destination,
@@ -57,7 +56,6 @@ export class ApiCallService {
                             provideRouteAlternatives: true
                         }, (response, status) => {
                             if (status === 'OK') {
-                                console.log(response);
                                 this.ratedPaths = new RatedPaths(origin, destination, travelMode);
                                 this.ratedPaths.createItineraries([], response);
                                 console.log('population finish');

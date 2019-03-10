@@ -20,7 +20,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item (click)="goToDetails(i)" *ngFor="let i of itinerarySelected.paths">
+        <ion-item (click)="goToDetails(i)" *ngFor="let i of ratedPaths.itinerarySelected.paths">
           <ion-icon slot="start" name="walk"></ion-icon>
           <ion-label>
             <h2 class="bold">{{i.duration}}</h2>

@@ -25,8 +25,8 @@ export class RatedPaths {
         let itinerary;
         let legs;
         let i = 0;
-        let j = 0;
         res.routes.forEach(route => {
+            let j = 0;
             legs = route.legs[0];
             itinerary = new Itinerary(route);
             legs.steps.forEach(step => {

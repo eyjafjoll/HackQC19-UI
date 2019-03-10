@@ -13,7 +13,6 @@ export class Path {
 
     constructor(colorCode: string, rating: any, request) {
         this.colorCode = colorCode;
-        console.log(rating);
         this.rating = {
             collision: rating.collision,
             feupieton: rating.feupieton,
