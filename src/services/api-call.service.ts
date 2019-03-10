@@ -23,49 +23,34 @@ export class ApiCallService {
         const params = {
             destination: destination,
             origin: origin,
-            mode: travelMode,
+            mode: travelMode.toLocaleLowerCase(),
             constraints: constraints
         };
 
         return new Promise((resolve, reject) => {
-            this.http.get(this.url, {
-                params: params
-            }).toPromise()
-                .then(
-                    res => {
-                        this.directionsService.route({
-                            origin: origin,
-                            destination: destination,
-                            travelMode: travelMode,
-                            provideRouteAlternatives: true
-                        }, (response, status) => {
-                            if (status === 'OK') {
-                                this.ratedPaths = new RatedPaths(origin, destination, travelMode);
-                                this.ratedPaths.createItineraries(res, response);
-                                return resolve();
-                            }
+                this.http.get(this.url, {
+                    params: params
+                }).toPromise()
+                    .then(
+                        res => {
+                            return this.directionsService.route({
+                                origin: origin,
+                                destination: destination,
+                                travelMode: travelMode,
+                                provideRouteAlternatives: true
+                            }, (response, status) => {
+                                if (status === 'OK') {
+                                    this.ratedPaths = new RatedPaths(origin, destination, travelMode);
+                                    this.ratedPaths.createItineraries(res, response);
+                                    return resolve();
+                                }
+                                return reject();
+                            });
+                        }, () => {
+                            window.alert('Une erreur est survenue');
                             return reject();
                         });
-                    }, res => {
-                        // TODO delete when the API will be up
-                        console.log('API is down, will be populate anyway');
-                        this.directionsService.route({
-                            origin: origin,
-                            destination: destination,
-                            travelMode: travelMode,
-                            provideRouteAlternatives: true
-                        }, (response, status) => {
-                            if (status === 'OK') {
-                                this.ratedPaths = new RatedPaths(origin, destination, travelMode);
-                                this.ratedPaths.createItineraries([], response);
-                                console.log('population finish');
-                                return resolve();
-                            }
-                            console.log(response);
-                            return reject();
-                        });
-                    }
-                );
-        });
+            }
+        );
     }
 }

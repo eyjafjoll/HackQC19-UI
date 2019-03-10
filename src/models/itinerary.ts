@@ -27,6 +27,20 @@ export class Itinerary {
         return Math.round(number / this.paths.length);
     }
 
+    getMessage(): string {
+        let max = 0;
+        let message = '';
+
+        this.paths.forEach(path => {
+            if (path.getRating() > max) {
+                max = path.getRating();
+                message = path.message;
+            }
+        });
+
+        return message;
+    }
+
     getDirections(): any {
         return this.request;
     }

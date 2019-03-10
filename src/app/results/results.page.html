@@ -30,7 +30,9 @@
             <ion-label>
                 <h2 class="bold">{{i.time}}</h2>
                 <h3>{{i.distance}}</h3>
+                <p>{{i.getMessage()}}</p>
             </ion-label>
+
             <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.getRating())">{{i.getRating()}}%</ion-note>
         </ion-item>
         <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>
