@@ -18,6 +18,7 @@ export class MapComponent implements OnInit {
     markerOptions: any = {position: null, map: null, title: null};
     marker: any;
     ratedPaths: RatedPaths;
+    it: Itinerary;
 
     directionsDisplay = new google.maps.DirectionsRenderer;
 
@@ -27,6 +28,8 @@ export class MapComponent implements OnInit {
 
     ngOnInit() {
         this.ratedPaths = this.apiService.ratedPaths;
+        this.it = this.ratedPaths.itinerarySelected;
+        console.log(this.it);
         this.mapOptions = {
             center: this.ratedPaths.itinerarySelected.request.start_location,
             zoom: 17,

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {Itinerary} from "../../models/itinerary";
+import {Itinerary} from '../../models/itinerary';
+import {ApiCallService} from '../../services/api-call.service';
 
 
 @Component({
@@ -10,7 +11,10 @@ import {Itinerary} from "../../models/itinerary";
 })
 export class MapPage {
 
-    constructor(private router: Router) {
+    it: Itinerary;
+
+    constructor(private router: Router, private apiService: ApiCallService) {
+        this.it = apiService.ratedPaths.itinerarySelected;
     }
 
     goToSettings() {
@@ -19,11 +23,11 @@ export class MapPage {
 
     getColor(i: number) {
         if (i >= 85) {
-            return "ion-color-success";
+            return 'ion-color-success';
         } else if (i >= 70 && i > 50) {
-            return "ion-color-warning";
+            return 'ion-color-warning';
         } else {
-            return "ion-color-danger";
+            return 'ion-color-danger';
         }
     }
 }

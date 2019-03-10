@@ -5,7 +5,6 @@ export class Itinerary {
     paths: Array<Path> = [];
     time: string;
     distance: string;
-    rating: number;
 
     request;
 
@@ -13,7 +12,6 @@ export class Itinerary {
         this.request = request;
         this.time = request.legs[0].duration.text;
         this.distance = request.legs[0].distance.text;
-        this.rating = this.getRating();
     }
 
     addPath(rating: {}, step) {

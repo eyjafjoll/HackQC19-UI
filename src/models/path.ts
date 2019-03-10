@@ -1,10 +1,8 @@
-import {Intersection} from './intersection';
-
 export class Path {
     colorCode: string;
-    intersections: Array<Intersection>;
     duration: string;
     distance: string;
+    message: string;
     rating;
 
     // request needed to draw the steps
@@ -19,6 +17,8 @@ export class Path {
             feuxsonores: rating.feuxsonores,
             vehiculepietion: rating.vehiculepietion,
         };
+
+        this.message = '';
         this.request = request;
 
         this.duration = request.duration.text;
