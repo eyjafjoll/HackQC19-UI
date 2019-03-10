@@ -24,6 +24,10 @@ export class ResultsPage implements OnInit {
 
   }
 
+    goToSettings(i:Itinerary){
+        this.router.navigate(['/settings'])
+    }
+
   goToDetails(i:Itinerary){
       this.router.navigate(['/map'])
   }
