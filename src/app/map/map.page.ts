@@ -10,7 +10,6 @@ import {Itinerary} from "../../models/itinerary";
 })
 export class MapPage {
 
-
     constructor(private router: Router) {
     }
 
