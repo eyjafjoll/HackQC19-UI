@@ -20,7 +20,7 @@ export class RatedPaths {
         this.travelMode = transportationMode;
     }
 
-    createItineraries(rating: [], res: any) {
+    createItineraries(rating: any, res: any) {
         this.request = res.request;
         let itinerary;
         let legs;
