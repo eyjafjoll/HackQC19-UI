@@ -39,10 +39,10 @@ export class ResultsPage implements OnInit {
     }
 
     compare(a: Itinerary, b: Itinerary) {
-        if (a.rating < b.rating) {
+        if (a.getRating() < b.getRating()) {
             return 1;
         }
-        if (a.rating > b.rating) {
+        if (a.getRating() > b.getRating()) {
             return -1;
         }
         return 0;

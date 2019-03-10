@@ -24,12 +24,16 @@ export class RatedPaths {
         this.request = res.request;
         let itinerary;
         let legs;
+        let i = 0;
+        let j = 0;
         res.routes.forEach(route => {
             legs = route.legs[0];
             itinerary = new Itinerary(route);
             legs.steps.forEach(step => {
-                itinerary.addPath([], step);
+                itinerary.addPath(rating[i][j], step);
+                j++;
             });
+            i++;
             this.itineraries.push(itinerary);
         });
     }

@@ -17,7 +17,7 @@ export class Itinerary {
     }
 
     addPath(rating: {}, step) {
-        this.paths.push(new Path('', {}, step));
+        this.paths.push(new Path('', rating, step));
     }
 
     getRating(): number {

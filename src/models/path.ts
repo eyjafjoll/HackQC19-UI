@@ -5,9 +5,7 @@ export class Path {
     intersections: Array<Intersection>;
     duration: string;
     distance: string;
-    rating: {
-        collision: 95
-    };
+    rating = {};
 
     // request needed to draw the steps
     request;
@@ -23,9 +21,9 @@ export class Path {
     }
 
     getRating() {
-        let number = Math.round(Math.random() * 100);
+        const number = this.rating.collision + this.rating.feupieton + this.rating.feuxsonores + this.rating.vehiculepietion;
 
-        return number;
+        return number / 4;
     }
 
 }
