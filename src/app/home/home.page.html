@@ -1,28 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-segment (ionChange)="segmentChanged($event)" value="walk">
-      <ion-segment-button value="walk">
-        <ion-icon name="walk"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="cart">
-        <ion-icon name="cart"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="bicycle">
-        <ion-icon name="bicycle"></ion-icon>
-      </ion-segment-button>
-    </ion-segment>
+    <ion-title>Ou aller?</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="goToSettings()" color="primary">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content center text-center>
+  <ion-segment class="ion-padding" (ionChange)="segmentChanged($event)" value="walk">
+    <ion-segment-button value="walk">
+      <ion-icon name="walk"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="cart">
+      <ion-icon name="cart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="bicycle">
+      <ion-icon name="bicycle"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
   <ion-item >
-    <ion-label position="floating">Départ</ion-label>
-    <ion-input clearInput></ion-input>
+      <ion-icon slot="start" name="pin"></ion-icon>
+    <ion-label position="stacked">Départ</ion-label>
+    <ion-input clearInput value="Votre position"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Arrivée</ion-label>
-    <ion-input clearInput></ion-input>
+    <ion-icon slot="start" name="radio-button-on"></ion-icon>
+    <ion-label position="stacked">Arrivée</ion-label>
+    <ion-input autofocus="true" clearInput></ion-input>
   </ion-item>
 
     <ion-button class="ion-margin" (click)="calculateItenerary()" shape="round">Départ</ion-button>
