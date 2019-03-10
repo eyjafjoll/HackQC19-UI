@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiCallService} from '../../services/api-call.service';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
+import {SettingsService} from '../../services/settings.service';
 
 @Component({
     selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomePage {
     travelMode = 'WALKING';
 
 
-    constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation) {
+    constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation,
+                private settingsService: SettingsService) {
 
         this.geolocation.getCurrentPosition().then((position) => {
             this.position.lat = position.coords.latitude;
@@ -32,7 +34,7 @@ export class HomePage {
 
     calculateItenerary() {
         let origin = this.origin;
-        let constraints; // TODO get contraints from settings
+        let constraints = this.settingsService.getSettings();
         if (!origin) {
             origin = this.position.lat + ',' + this.position.lng;
         }
@@ -40,6 +42,7 @@ export class HomePage {
         this.apiService.origin = origin;
         this.apiService.destination = this.destination;
 
+        console.log(constraints);
         if (this.travelMode !== 'WALKING') {
             constraints = [];
         }
