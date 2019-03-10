@@ -21,8 +21,12 @@ export class Itinerary {
     }
 
     getRating(): number {
-        // TODO
-        return Math.round(Math.random() * 100);
+        let number = 0;
+        this.paths.forEach(path => {
+            number += path.getRating();
+        });
+
+        return number / this.paths.length;
     }
 
     getDirections(): any {

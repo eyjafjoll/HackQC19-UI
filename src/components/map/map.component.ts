@@ -45,10 +45,6 @@ export class MapComponent implements OnInit {
     }
 
     displayDirection(itinerary: Itinerary) {
-        console.log({
-            request: this.apiService.ratedPaths.request,
-            routes: [itinerary.getDirections()]
-        });
         this.directionsDisplay.setDirections({
             request: this.apiService.ratedPaths.request,
             routes: [itinerary.getDirections()]

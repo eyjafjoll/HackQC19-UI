@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RatedPaths} from '../models/ratedPaths';
+import {SettingsService} from './settings.service';
 
 declare var google: any;
 
@@ -22,16 +23,17 @@ export class ApiCallService {
         const params = {
             destination: destination,
             origin: origin,
-            travelMode: travelMode,
+            mode: travelMode,
             constraints: constraints
         };
 
         return new Promise((resolve, reject) => {
-            this.http.get(/*this.url*/ 'localhost:8080/api', {
+            this.http.get(this.url, {
                 params: params
             }).toPromise()
                 .then(
                     res => {
+                        console.log(res);
                         this.directionsService.route({
                             origin: origin,
                             destination: destination,
@@ -40,7 +42,7 @@ export class ApiCallService {
                         }, (response, status) => {
                             if (status === 'OK') {
                                 this.ratedPaths = new RatedPaths(origin, destination, travelMode);
-                                this.ratedPaths.createItineraries(res.json(), response);
+                                this.ratedPaths.createItineraries(res, response);
                                 return resolve();
                             }
                             return reject();
@@ -55,7 +57,7 @@ export class ApiCallService {
                             provideRouteAlternatives: true
                         }, (response, status) => {
                             if (status === 'OK') {
-                                console.log(response)
+                                console.log(response);
                                 this.ratedPaths = new RatedPaths(origin, destination, travelMode);
                                 this.ratedPaths.createItineraries([], response);
                                 console.log('population finish');

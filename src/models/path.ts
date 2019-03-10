@@ -5,7 +5,9 @@ export class Path {
     intersections: Array<Intersection>;
     duration: string;
     distance: string;
-    rating: {};
+    rating: {
+        collision: 95
+    };
 
     // request needed to draw the steps
     request;
@@ -21,7 +23,9 @@ export class Path {
     }
 
     getRating() {
-        // TODO
+        let number = Math.round(Math.random() * 100);
+
+        return number;
     }
 
 }
