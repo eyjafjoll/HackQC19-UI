@@ -5,17 +5,19 @@ export class Itinerary {
     idItinerary: number;
     paths: Array<Path>;
     time: number;
+    rating: number;
 
 
     constructor(idItinerary: number, paths: Path[], time: number) {
         this.idItinerary = idItinerary;
         this.paths = paths;
         // this.time = time;
-        this.time = Math.random() * 60;
+        this.time = Math.round(Math.random() * 60);
+        this.rating = this.getRating();
     }
 
     getRating(): number {
-        return Math.random() * 100;
+        return Math.round(Math.random() * 100);
     }
 
     getDirections(): any {

@@ -16,6 +16,8 @@ export class ResultsPage implements OnInit {
         new Itinerary(1,[], 0),
         new Itinerary(2,[], 0)
     ];
+
+      this.itineraries.sort(this.compare);
   }
 
   ngOnInit() {
@@ -25,5 +27,13 @@ export class ResultsPage implements OnInit {
   goToDetails(i:Itinerary){
       this.router.navigate(['/map'])
   }
+
+    compare(a: Itinerary, b: Itinerary) {
+        if (a.rating < b.rating)
+            return 1;
+        if (a.rating > b.rating)
+            return -1;
+        return 0;
+    }
 
 }

@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
     <ion-title>Vos options</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,10 +10,8 @@
 <ion-content padding>
   <ion-list>
     <ion-item (click)="goToDetails(i)" *ngFor="let i of itineraries">
-      <h2>Temps: {{i.time}}</h2>
-      <ion-avatar item-right>
-        {{i.getRating()}}
-      </ion-avatar>
+      <ion-label class="hydrated">{{i.time}} min</ion-label>
+      <ion-note slot="end" color="warning" class="ion-color ion-color-warning hydrated">{{i.rating}}%</ion-note>
     </ion-item>
     <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>
   </ion-list>
