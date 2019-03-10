@@ -1,37 +1,38 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button text=""></ion-back-button>
-    </ion-buttons>
-    <ion-title>Vos options</ion-title>
-    <ion-buttons slot="primary">
-      <ion-button (click)="goToSettings()">
-        <ion-icon slot="icon-only" name="settings"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>Vos options</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="goToSettings()">
+                <ion-icon slot="icon-only" name="settings"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card class="welcome-card" (click)="goToHome()">
-    <ion-card-header>
-      <ion-card-title>Votre trajet</ion-card-title>
-      <ion-card-subtitle color="secondary">Vers: <br></ion-card-subtitle>{{destination}}
-    </ion-card-header>
-    <ion-card-content>
+    <ion-card class="welcome-card" (click)="goToHome()">
+        <ion-card-header>
+            <ion-card-title>Votre trajet</ion-card-title>
+            <ion-card-subtitle color="secondary">Vers: <br></ion-card-subtitle>
+            {{destination}}
+        </ion-card-header>
+        <ion-card-content>
 
-    </ion-card-content>
-  </ion-card>
+        </ion-card-content>
+    </ion-card>
 
-  <ion-list>
-    <ion-item (click)="goToDetails(i)" *ngFor="let i of ratedPaths.itineraries">
-      <ion-icon slot="start" name="walk"></ion-icon>
-      <ion-label>
-        <h2 class="bold">{{i.time}}</h2>
-        <h3>{{i.distance}}</h3>
-      </ion-label>
-      <ion-note slot="end" class="bold">{{i.getRating()}}%</ion-note>
-    </ion-item>
-    <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>
-  </ion-list>
+    <ion-list>
+        <ion-item (click)="goToDetails(i)" *ngFor="let i of ratedPaths.itineraries">
+            <ion-icon slot="start" name="walk"></ion-icon>
+            <ion-label>
+                <h2 class="bold">{{i.time}}</h2>
+                <h3>{{i.distance}}</h3>
+            </ion-label>
+            <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.getRating())">{{i.getRating()}}%</ion-note>
+        </ion-item>
+        <ion-item class="no-items">Pas de trajets correspondant à vos criteres de recherche.</ion-item>
+    </ion-list>
 </ion-content>
