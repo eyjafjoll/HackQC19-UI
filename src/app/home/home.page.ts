@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 import {Router} from '@angular/router';
-import {Itinerary} from '../../models/itinerary';
 import {ApiCallService} from '../../services/api-call.service';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 
