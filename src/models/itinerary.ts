@@ -4,11 +4,18 @@ export class Itinerary {
 
     idItinerary: number;
     paths: Array<Path>;
+    time: number;
 
 
-    constructor(idItinerary: number, paths: Path[]) {
+    constructor(idItinerary: number, paths: Path[], time: number) {
         this.idItinerary = idItinerary;
         this.paths = paths;
+        // this.time = time;
+        this.time = Math.random() * 60;
+    }
+
+    getRating(): number {
+        return Math.random() * 100;
     }
 
     getDirections(): any {
