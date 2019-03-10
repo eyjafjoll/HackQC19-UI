@@ -12,15 +12,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="medium">
+<ion-content>
   <google-map></google-map>
-  <ion-card color="light" class="welcome-card">
+  <ion-card class="welcome-card">
     <ion-card-header>
-      <ion-card-subtitle>Get Startede</ion-card-subtitle>
-      <ion-card-title>Welcome to Ionic</ion-card-title>
+      <ion-card-title>Détails de l'indice de sécurité</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+      <ion-list>
+        <ion-item (click)="goToDetails(i)" *ngFor="let i of itinerarySelected.paths">
+          <ion-icon slot="start" name="walk"></ion-icon>
+          <ion-label>
+            <h2 class="bold">{{i.duration}}</h2>
+            <h3>{{i.distance}}</h3>
+          </ion-label>
+          <ion-note slot="end" class="bold ion-color" [ngClass]="getColor(i.getRating())">{{i.getRating()}}%</ion-note>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>

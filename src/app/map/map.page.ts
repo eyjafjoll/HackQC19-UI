@@ -10,11 +10,20 @@ import {Itinerary} from "../../models/itinerary";
 })
 export class MapPage {
 
-
     constructor(private router: Router) {
     }
 
     goToSettings() {
         this.router.navigate(['/settings']);
+    }
+
+    getColor(i: number) {
+        if (i >= 85) {
+            return "ion-color-success";
+        } else if (i >= 70 && i > 50) {
+            return "ion-color-warning";
+        } else {
+            return "ion-color-danger";
+        }
     }
 }
