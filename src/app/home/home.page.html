@@ -1,30 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-segment (ionChange)="segmentChanged($event)" value="walk">
-      <ion-segment-button value="walk">
-        <ion-icon name="walk"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="cart">
-        <ion-icon name="cart"></ion-icon>
-      </ion-segment-button>
-      <ion-segment-button value="bicycle">
-        <ion-icon name="bicycle"></ion-icon>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="travelMode" value="walking">
+            <ion-segment-button value="walking">
+                <ion-icon name="walk"></ion-icon>
+            </ion-segment-button>
+            <!--<ion-segment-button value="cart">
+                <ion-icon name="cart"></ion-icon>
+            </ion-segment-button>-->
+            <ion-segment-button value="bicycling">
+                <ion-icon name="bicycle"></ion-icon>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content center text-center>
-  <ion-item >
-    <ion-label position="floating">Départ</ion-label>
-    <ion-input clearInput></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label position="floating">Votre position</ion-label>
+        <ion-input clearInput [(ngModel)]="origin"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Arrivée</ion-label>
-    <ion-input clearInput></ion-input>
-  </ion-item>
+    <ion-item>
+        <ion-label position="floating">Destination</ion-label>
+        <ion-input clearInput [(ngModel)]="destination"></ion-input>
+    </ion-item>
 
-    <ion-button (click)="calculateItenerary()" shape="round">Départ</ion-button>
+    <ion-button (click)="calculateItenerary()" shape="round">Rechercher</ion-button>
 
 </ion-content>

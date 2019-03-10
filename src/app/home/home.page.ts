@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
+import {ApiCallService} from '../../services/api-call.service';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
+
 
 @Component({
     selector: 'app-home',
@@ -8,15 +11,30 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
+    origin: string;
+    position = {lat: null, lng: null};
+    destination: string;
+    travelMode: string;
 
-    constructor(private router: Router) {
+
+    constructor(private router: Router, private apiService: ApiCallService, public geolocation: Geolocation) {
+        this.geolocation.getCurrentPosition().then((position) => {
+            this.position.lat = position.coords.latitude;
+            this.position.lng = position.coords.longitude;
+            console.log('Position find ' + this.position.lat + ',' + this.position.lng);
+        });
     }
 
-    calculateItenerary(){
-        this.router.navigate(['/results'])
-    }
+    calculateItenerary() {
+        if (!this.origin) {
+            this.origin = this.position.lat + ',' + this.position.lng;
+        }
 
-    segmentChanged(ev: any) {
-        console.log('Segment changed', ev);
+        this.apiService.origin = this.origin;
+        this.apiService.destination = this.destination;
+
+        // TODO fill constraints
+        this.apiService.searchItineraries(this.origin, this.destination, this.travelMode, []);
+        this.router.navigate(['/results']);
     }
 }

@@ -45,7 +45,7 @@ export class MapComponent implements OnInit {
             this.markerOptions.title = 'My Location';
             this.marker = new google.maps.Marker(this.markerOptions);
             this.directionsDisplay.setMap(this.map);
-            //this.displayDirection(new Itinerary(1, []));
+            this.displayDirection(new Itinerary(1, []));
         });
 
 
@@ -72,7 +72,7 @@ export class MapComponent implements OnInit {
                 travelMode: 'WALKING'
             }, (response, status) => {
                 if (status === 'OK') {
-                    console.log(response);
+                    console.log(response.routes[0].bounds);
                     const r = {
                         request: response.request,
                         routes: response.routes
