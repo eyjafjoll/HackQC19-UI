@@ -1,3 +1,7 @@
+// Licensed to the Eyjafjoll under one or more agreements.
+// Eyjafjoll licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 

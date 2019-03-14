@@ -1,3 +1,7 @@
+// Licensed to the Eyjafjoll under one or more agreements.
+// Eyjafjoll licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
